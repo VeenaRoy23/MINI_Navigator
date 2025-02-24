@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tools</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(36, 6, 64, 0.5), rgba(41, 4, 75, 0.5)), 
+                        url('./STUMENU.jpg') no-repeat center center/cover;
+        }
+
+        /* Lightened Overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(138, 43, 226, 0.2); /* Light violet overlay */
+            z-index: 1;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            z-index: 2;
+        }
+
+        .quote {
+            font-size: 36px;
+            font-style: italic;
+            font-weight: bold;
+            text-align: left;
+            color: white;
+            text-shadow: 2px 2px 4px black;
+            position: relative;
+            left: -70px;
+        }
+
+        .line {
+            width: 2px;
+            height: 400px;
+            background-color: white;
+            transform: rotate(30deg);
+            transform-origin: top;
+            margin: 0 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        .buttons button {
+            width: 250px;
+            height: 60px;
+            font-size: 20px;
+            background-color: rgb(179, 172, 208);
+            border: 2px solid black;
+            border-radius: 30px;
+            color: #2C0F67;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
+            text-align: center;
+            line-height: 60px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons button:hover {
+            transform: scale(1.05);
+            background-color: #F0F0F0;
+            color: #2C0F67;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quote">
+            <em><strong>"Study Smart<br>
+            – Pick Your Essential Resource."</strong></em>
+        </div>
+        <div class="line"></div>
+        <div class="buttons">
+            <button>STUDY MATERIALS</button>
+            <button>MOCKTEST</button>
+            <button>PROGRESS CARD</button>
+            <button>TIMETABLE</button>
+        </div>
+    </div>
+</body>
+</html>

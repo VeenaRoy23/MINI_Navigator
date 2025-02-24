@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Learning Potential</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, rgba(93, 39, 180, 0.85), rgba(112, 57, 171, 0.85)), 
+                        url('./edstu.jpg'); /* Replace with actual image path */
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        /* Overlay for better readability */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+        h1, p, .button-container {
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 3em;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        p {
+            font-size: 1.2em;
+            font-weight: lighter;
+            color: #D3D3D3;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .button {
+            background-color: lightgray;
+            color: black;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .button:hover {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Unlock Learning Potential</h1>
+    <p>"Choose Educator or Student to create a successful learning experience."</p>
+    <div class="button-container">
+        <a href="#" class="button" onclick="location.href='/educator_login'">EDUCATOR</a>
+        <span>OR</span>
+        <a href="#" class="button" onclick="location.href='/student_login'">STUDENT</a>
+    </div>
+</body>
+</html>

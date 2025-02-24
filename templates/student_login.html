@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Navigator - Student Login</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background with Image & Gradient */
+        body {
+            background: linear-gradient(to bottom, rgba(66, 39, 111, 0.85), rgba(25, 11, 40, 0.85)), 
+                        url('/static/stu.jpg'); /* Ensure this image exists in the static folder */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Moving Header */
+        .header {
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 10px;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .moving-text {
+            font-size: 42px;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            color: white;
+            display: inline-block;
+            position: relative;
+            animation: moveText 16s linear infinite;
+        }
+
+        @keyframes moveText {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Container */
+        .container {
+            width: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-weight: bold;
+        }
+
+        .input-group input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .login-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0a500;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            background: #d78a00;
+        }
+
+        .forgot-password, .signup-option {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .forgot-password a, .signup-option a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .forgot-password a:hover, .signup-option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Moving Text -->
+    <div class="header">
+        <span class="moving-text">WELCOME TO EXAM NAVIGATOR</span>
+    </div>
+
+    <div class="container">
+        <h2>STUDENT LOGIN</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('student_login') }}" method="POST">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <div class="signup-option">
+            Don't have an account? <a href="{{ url_for('student_signup') }}">Sign Up</a>
+        </div>
+    </div>
+
+</body>
+</html>

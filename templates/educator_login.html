@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator Login</title>
+    <style>
+        @import url('./edu.jpg');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, rgba(66, 39, 111, 0.85), rgba(25, 11, 40, 0.85)), 
+                        url('./edu.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Home Button Styling */
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .home-button a {
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .home-button a:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .login-box {
+            width: 350px;
+            padding: 40px;
+            border-radius: 10px;
+            background:linear-gradient(to bottom, #4B1E74, #1D0427); /* Semi-transparent background */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px); /* Adds a glass effect */
+        }
+        
+        h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .options {
+            text-align: right;
+            font-size: 14px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .options a {
+            color: #f0a500;
+            text-decoration: none;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #f0a500;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .login-btn:hover {
+            background: #d78a00;
+        }
+        
+        .or {
+            margin: 10px 0;
+            color: white;
+        }
+        
+        .google-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .google-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .signup-link {
+            margin-top: 10px;
+            color: white;
+        }
+        
+        .signup-link a {
+            color: #f0a500;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Home Button -->
+    <div class="home-button">
+        <a href="#">Home</a>
+    </div>
+
+    <div class="login-box">
+        <h2>Educator Login</h2>
+        <form action='/upload_materials_page' onsubmit="return validateLogin()">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="options">
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit" class="login-btn">Login Now →</button>
+            <p class="signup-link">New Here?<a href="{{ url_for('educator_signup_page') }}">Sign Up</a></p>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            
+            if (email === "" || password === "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+            alert("Login Successful!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

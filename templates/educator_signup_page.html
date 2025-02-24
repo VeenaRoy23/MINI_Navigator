@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Navigator - Educator Sign Up</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background */
+        body {
+            background: linear-gradient(to bottom, rgba(66, 39, 111, 0.85), rgba(25, 11, 40, 0.85)), 
+                        url('./esignup.jpg'); /* Replace with actual image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container */
+        .container {
+            width: 500px; /* Increased width */
+            min-height: 700px; /* Increased height */
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+            color: white;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-weight: bold;
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Gender Selection */
+        .gender-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .gender-group label {
+            margin-right: 10px;
+            font-weight: normal;
+        }
+
+        /* File Upload */
+        .input-group input[type="file"] {
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sign-Up Button */
+        .signup-btn {
+            margin-top: 15px;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            width: 100%;
+        }
+
+        .signup-btn:hover {
+            background: #218838;
+        }
+
+        .login-option {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-option a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Educator Sign Up</h2>
+        <form action="/educator_signup" method="POST" enctype="multipart/form-data">  <!-- Added enctype for file upload -->
+            <div class="input-group">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+            </div>
+
+            <!-- Gender Selection -->
+            <div class="input-group">
+                <label>Gender:</label>
+                <div class="gender-group">
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                    <label><input type="radio" name="gender" value="other" required> Other</label>
+                </div>
+            </div>
+
+            <!-- Qualification Input -->
+            <div class="input-group">
+                <label for="qualification">Qualification:</label>
+                <input type="text" id="qualification" name="qualification" placeholder="Enter your qualification" required>
+            </div>
+
+            <!-- Certificate Upload -->
+            <div class="input-group">
+                <label for="certificate">Upload Certificate:</label>
+                <input type="file" id="certificate" name="certificate" required>
+            </div>
+
+            <button class="signup-btn" type="submit">Sign Up</button>
+        </form>
+
+        <div class="login-option">
+            Already have an account? <a href="index.html">Login</a>
+        </div>
+    </div>
+
+</body>
+</html>

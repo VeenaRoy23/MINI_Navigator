@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Stream</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, rgba(36, 18, 67, 0.6), rgba(40, 17, 79, 0.6)), 
+                        url('./STREAM.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Overlay for slight transparency */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 24, 73, 0.4); /* Lighter overlay for more image visibility */
+            z-index: 1;
+        }
+
+        h1, .button-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-style: italic;
+            font-size: 1.8em;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .button-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2e125e;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-style: italic;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #3e1988;
+        }
+
+        .button::after {
+            content: " ▼"; /* Downward arrow */
+            font-size: 0.8em;
+            margin-left: 8px;
+        }
+
+        .dropdown {
+            display: none;
+            background-color: white;
+            border-radius: 10px;
+            position: absolute;
+            top: 60px;
+            width: 220px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 3;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+            font-size: 1em;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>"Your Journey Starts Here – Pick a Stream"</h1>
+    <div class="button-container">
+        <button class="button" onclick="toggleDropdown()">SELECT YOUR STREAM</button>
+        <div class="dropdown" id="dropdown">
+            <a href="#">Biology Science</a>
+            <a href="#">Computer Science</a>
+            <a href="#">Commerce</a>
+            <a href="#">Agriculture</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown");
+            dropdown.classList.toggle("show");
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.button')) {
+                var dropdown = document.getElementById("dropdown");
+                if (dropdown.classList.contains("show")) {
+                    dropdown.classList.remove("show");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

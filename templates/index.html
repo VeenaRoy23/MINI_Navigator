@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Navigator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: linear-gradient(to bottom, rgba(75, 36, 142, 0.85), rgba(21, 9, 42, 0.85)), 
+                        url('./HOME.jpg'); /* Full-page background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end; /* Move buttons to the right */
+            padding: 20px;
+            gap: 15px;
+            margin-right: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar button {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .navbar button:hover {
+            background: white;
+            color: #4B248E;
+        }
+
+        .container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 8%;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .title {
+            font-size: 90px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+            white-space: nowrap;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 1s forwards;
+        }
+
+        .underline {
+            width: 85%; /* Line reaching the letter R */
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.6); /* Lighter color */
+            margin-top: 10px;
+        }
+
+        .motto {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold; /* Make it bold */
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <button onclick="location.href='/about'">ABOUT US</button>
+        <button onclick="location.href='/login_page'">LOGIN</button>
+    </div>
+      
+    
+    
+
+    <div class="container">
+        <div class="title">
+            Exam<br>Navigator
+            <div class="underline"></div>
+            <div class="motto">Navigate. Learn. Succeed.</div>
+        </div>
+    </div>
+
+</body>
+</html>
